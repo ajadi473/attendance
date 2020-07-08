@@ -2,7 +2,7 @@
 const global = {
     enter : document.getElementById("enter"),
     //todo : document.getElementById("todo"),
-    ol : document.getElementById("inputUserName"),
+    ol : document.getElementById("ol"),
     list : [],
     button : document.getElementsByTagName("button"),
 }
@@ -25,28 +25,9 @@ const valueCheck=(event)=>{
 }
 }
 
-//removes a list element
-const removeList=()=>{
-    //mark is the class for clicked lists
-    let mark=document.getElementsByClassName("mark");
-    let length=mark.length;
-    for(let i=0;i<length;i++){
-        let index = checkList(mark[0].innerHTML);
-        global.list.splice(index,1);
-        mark[0].remove();
-        
-    }
-}
 
-//marks a list element when clicked
-const markDone=()=>{
-    let mark=document.getElementsByClassName("mark");
-    let length=mark.length;
-    for(let i=0;i<length;i++){
-        mark[0].classList.toggle('done')
-        mark[0].classList.remove('mark')
-    }
-}
+
+
 
 //creates a new list element
 const createLi= ()=>{
@@ -78,10 +59,7 @@ const checkList = (value)=>{
 global.ol.addEventListener('click',(event)=>{
     event.target.classList.toggle('mark')
 })
-//when 'delete' button is clicked
-global.toDelete.addEventListener('click',removeList)
-//when 'done' button is clicked
-global.toDone.addEventListener('click',markDone)
+
 //when 'enter' button is clicked
 global.enter.addEventListener('click',valueCheck);
 //when keys are pressed
